@@ -13,6 +13,8 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+local_css("styles.css")
+
 def remote_css(url):
     st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
 
@@ -63,36 +65,7 @@ def main():
         initial_sidebar_state="collapsed",
     )
     # Custom CSS to hide Streamlit's default elements and set custom fonts
-    hide_streamlit_style = """
-        
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        .stApp {
-            font-family: 'DM Serif Display', serif;
-        }
-        .stTitle, .stSubheader {
-            font-family: 'DM Serif Display', serif;
-        }
-        .stChat {
-            border-radius: 10px;
-            padding: 10px;
-        }
-        .stChatMessage {
-            background-color: #d9faf6;
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .stChatMessage.user {
-            background-color: #ADD8E6;
-        }
-        .stChatMessage.assistant {
-            background-color: #ADD8E6;
-        }
-        </style>
-    """
+    
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
     # Load custom fonts

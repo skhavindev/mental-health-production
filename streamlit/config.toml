@@ -1,0 +1,27 @@
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        .stApp {
+            font-family: 'DM Serif Display', serif;
+        }
+        .stTitle, .stSubheader {
+            font-family: 'DM Serif Display', serif;
+        }
+        .stChat {
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .stChatMessage {
+            background-color: #d9faf6;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .stChatMessage.user {
+            background-color: #ADD8E6;
+        }
+        .stChatMessage.assistant {
+            background-color: #ADD8E6;
+        }
+        </style>

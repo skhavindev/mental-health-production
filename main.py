@@ -62,7 +62,7 @@ def main():
         initial_sidebar_state="collapsed",
     )
     # Custom CSS to hide Streamlit's default elements and set custom fonts
-    hide_streamlit_style = """
+    hide_streamlit_style = ("""
         
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
@@ -91,10 +91,7 @@ def main():
             background-color: #ADD8E6;
         }
         </style>
-    """
-    
-    st.markdown(hide_streamlit_style, <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> , <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> unsafe_allow_html=True)
-
+    """, unsafe_allow_html=True)
 
 
     st.title("Marin 🧠💚")

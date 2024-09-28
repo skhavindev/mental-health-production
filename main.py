@@ -13,7 +13,6 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-local_css("styles.css")
 def remote_css(url):
     st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
 
@@ -38,8 +37,10 @@ class MentalHealthChatbot:
             memory=self.memory,
             prompt=ChatPromptTemplate.from_template(
                 """You are Marin, a compassionate mental health assistant developed by TextFusion.AI. Your role is to provide supportive and informative responses based on reliable mental health information. Always prioritize the user's well-being and give advice for the same. Remember to use the conversation history to provide context-aware responses.
+
                 Current conversation:
                 {history}
+
                 Human: {input}
                 AI Assistant:"""
             ),
@@ -62,7 +63,7 @@ def main():
         initial_sidebar_state="collapsed",
     )
     # Custom CSS to hide Streamlit's default elements and set custom fonts
-    hide_streamlit_style = ("""
+    hide_streamlit_style = """
         
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
@@ -91,7 +92,19 @@ def main():
             background-color: #ADD8E6;
         }
         </style>
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+    # Load custom fonts
+    st.markdown("""
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     """, unsafe_allow_html=True)
+
+    # Load Material Icons
+    st.markdown("""
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    """, unsafe_allow_html=True)
+
 
 
     st.title("Marin 🧠💚")

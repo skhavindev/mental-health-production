@@ -93,17 +93,7 @@ def main():
         </style>
     """
     
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-    # Load custom fonts
-    st.markdown("""
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    """, unsafe_allow_html=True)
-
-    # Load Material Icons
-    st.markdown("""
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    """, unsafe_allow_html=True)
+    st.markdown(hide_streamlit_style, <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> , <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> unsafe_allow_html=True)
 
 
 

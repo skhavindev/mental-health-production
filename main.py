@@ -8,13 +8,39 @@ from langchain.chains import ConversationChain
 
 GROQ_API_KEY = "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"
 
-# Custom CSS loading functions
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-def remote_css(url):
-    st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
+def load_css():
+    st.markdown("""
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@100;400&display=swap');
+        
+        .stApp {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: black;
+        }
+        .stTitle, .stSubheader {
+            font-family: 'DM Serif Display', serif;
+        }
+        .stChat {
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .stChatMessage {
+            background-color: #d9faf6;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .stChatMessage.user {
+            background-color: #ADD8E6;
+        }
+        .stChatMessage.assistant {
+            background-color: #ADD8E6;
+        }
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style>
+    """, unsafe_allow_html=True)
 
 def icon(icon_name):
     st.markdown(f'<i class="material-icons">{icon_name}</i>', unsafe_allow_html=True)
@@ -62,53 +88,14 @@ def main():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    # Custom CSS to hide Streamlit's default elements and set custom fonts
-    hide_streamlit_style = """
-        
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        .stApp {
-            font-family: 'DM Serif Display', serif;
-            background-color: white;
-            color:black;
-        }
-        .stTitle, .stSubheader {
-            font-family: 'DM Serif Display', serif;
-        }
-        .stChat {
-            border-radius: 10px;
-            padding: 10px;
-        }
-        .stChatMessage {
-            background-color: #d9faf6;
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .stChatMessage.user {
-            background-color: #ADD8E6;
-        }
-        .stChatMessage.assistant {
-            background-color: #ADD8E6;
-        }
-
-        </style>
-    """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-    # Load custom fonts
-    st.markdown("""
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    """, unsafe_allow_html=True)
+    
+    # Load custom CSS
+    load_css()
 
     # Load Material Icons
     st.markdown("""
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     """, unsafe_allow_html=True)
-
-
 
     st.title("Marin 🧠💚")
     st.subheader("-Your personal mental health assistant-")
@@ -131,7 +118,7 @@ def main():
             st.session_state.messages = []
 
         for message in st.session_state.messages:
-            with st.chat_message(message["role"], avatar="👤" if message["role"] == "user" else "🤖"):
+            with st.chat_message(message["role"], avatar="👤" if message["role"] == "user" else "👱🏼‍♀"):
                 st.markdown(message["content"])
 
         if prompt := st.chat_input("How are you feeling today?"):

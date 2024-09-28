@@ -91,6 +91,11 @@ def main():
         .stChatMessage.assistant {
             background-color: #ADD8E6;
         }
+        .stApp {
+        background-color: white;
+        color: black; 
+        }
+
         </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)

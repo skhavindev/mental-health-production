@@ -71,6 +71,8 @@ def main():
         footer {visibility: hidden;}
         .stApp {
             font-family: 'DM Serif Display', serif;
+            background-color: white;
+            color:black;
         }
         .stTitle, .stSubheader {
             font-family: 'DM Serif Display', serif;
@@ -90,10 +92,6 @@ def main():
         }
         .stChatMessage.assistant {
             background-color: #ADD8E6;
-        }
-        .stApp {
-        background-color: white;
-        color: black; 
         }
 
         </style>

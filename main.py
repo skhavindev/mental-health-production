@@ -9,8 +9,11 @@ from langchain.chains import ConversationChain
 GROQ_API_KEY = "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"
 
 # Custom CSS loading functions
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-
+local_css("styles.css")
 def remote_css(url):
     st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
 
@@ -35,10 +38,8 @@ class MentalHealthChatbot:
             memory=self.memory,
             prompt=ChatPromptTemplate.from_template(
                 """You are Marin, a compassionate mental health assistant developed by TextFusion.AI. Your role is to provide supportive and informative responses based on reliable mental health information. Always prioritize the user's well-being and give advice for the same. Remember to use the conversation history to provide context-aware responses.
-
                 Current conversation:
                 {history}
-
                 Human: {input}
                 AI Assistant:"""
             ),
@@ -60,12 +61,37 @@ def main():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-    local_css("styles.css")
     # Custom CSS to hide Streamlit's default elements and set custom fonts
+    hide_streamlit_style = """
+        
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        .stApp {
+            font-family: 'DM Serif Display', serif;
+        }
+        .stTitle, .stSubheader {
+            font-family: 'DM Serif Display', serif;
+        }
+        .stChat {
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .stChatMessage {
+            background-color: #d9faf6;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .stChatMessage.user {
+            background-color: #ADD8E6;
+        }
+        .stChatMessage.assistant {
+            background-color: #ADD8E6;
+        }
+        </style>
+    """
     
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 

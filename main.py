@@ -14,7 +14,7 @@ def load_css():
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@100;400&display=swap');
         
         .stApp {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'DM Serif Display', serif;
             background-color: white;
             color: white;
             font-color: black;

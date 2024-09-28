@@ -9,11 +9,7 @@ from langchain.chains import ConversationChain
 GROQ_API_KEY = "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"
 
 # Custom CSS loading functions
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-local_css("styles.css")
 
 def remote_css(url):
     st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
@@ -64,6 +60,11 @@ def main():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
+    def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+    local_css("styles.css")
     # Custom CSS to hide Streamlit's default elements and set custom fonts
     
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)

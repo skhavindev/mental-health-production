@@ -16,7 +16,8 @@ def load_css():
         .stApp {
             font-family: 'Roboto', sans-serif;
             background-color: white;
-            color: black;
+            color: white;
+            font-color: black;
         }
         .stTitle, .stSubheader {
             font-family: 'DM Serif Display', serif;
